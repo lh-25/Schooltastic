@@ -8,9 +8,9 @@ Schooltastic is a comprehensive course management platform designed for educatio
 ![Schooltastic-ERD drawio](https://github.com/user-attachments/assets/7478ade2-6f69-4244-a908-7a1e32cb6884)
 ## User Stories
 - **As a teacher**, I want to create, update, and delete courses so that I can manage my curriculum and class information.
-- **As a teacher**,, I want to view the list of students enrolled in my courses so I can keep track of them.
-- **As a teacher**,, I want to manage my profile, including changing my password, email, and profile picture for security and personalization.
-- **As a student**,, I want to view the courses I’m enrolled in and see details such as the teacher's name, course schedule, and description so I can stay updated.
+- **As a teacher**, I want to view the list of students enrolled in my courses so I can keep track of them.
+- **As a teacher**, I want to manage my profile, including changing my password, email, and profile picture for security and personalization.
+- **As a student**, I want to view the courses I’m enrolled in and see details such as the teacher's name, course schedule, and description so I can stay updated.
 - **As a student**, I want to edit my own profile to update my contact information changing my password, email, and profile picture .
 - **As a user**, I want to search for courses by name or course code to easily find the information I need.
 ## MVP
