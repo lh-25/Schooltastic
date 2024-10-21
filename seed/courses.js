@@ -9,25 +9,25 @@ const main = async () => {
        schedule: ['mon','thurs'],
        durationInMinutes: 60,
        courseCode: 45731, 
-       seatsAvalible: 34,},
+       seatsAvailable: 34,},
 
        {name:'Science',
         schedule: ['tues','fri'],
         durationInMinutes: 45,
         courseCode: 93840, 
-        seatsAvalible: 9,},
+        seatsAvailable: 9,},
 
         {name:'English',
           schedule: ['wed'],
           durationInMinutes: 90,
           courseCode: 20849, 
-          seatsAvalible: 2,},
+          seatsAvailable: 2,},
 
           {name:'History',
             schedule: ['wed','fri'],
             durationInMinutes: 30,
             courseCode: 92378, 
-            seatsAvalible: 20,},
+            seatsAvailable: 20,},
   ]
   await Course.insertMany(courses)
   console.log('Created Courses!')

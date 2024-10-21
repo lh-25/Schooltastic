@@ -86,7 +86,19 @@ const getStudentByName = async (req, res) => {
         return res.status(500).send(error.message);
     }
 };
-
+const getStudentByCourseId = async (req, res) => {
+    try {
+        const  {courseId } = req.params;
+        const decodedName = decodeURIComponent(courseId)
+        const student = await Student.find({ course: courseId });
+        if (student.length > 0) {
+            return res.json(student);
+        }
+        return res.status(404).send('Student with the specified name does not exist');
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+};
 
 
 
@@ -95,6 +107,7 @@ module.exports = {
     getStudentById,
     getStudentByName,
     getStudentByEmail,
+    getStudentByCourseId,
     createStudent,
     updateStudent,
     deleteStudent

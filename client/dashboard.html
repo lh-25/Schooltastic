@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schooltastic Dashboard</title>
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="/client/style.css">
+
+    <!-- Axios Library -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- JavaScript for Dashboard -->
+    <script defer src="/client/dashboard.js"></script>
+</head>
+<body>
+    <header class="header">
+        <h1>Schooltastic</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <aside class="sidebar">
+        <ul>
+            <li><a href="#">My Info</a></li>
+            <li><a href="#" id="manage-users">Manage Users</a></li>
+            <li><a href="#" id="manage-courses">Manage Courses</a></li>
+        </ul>
+    </aside>
+
+    <main class="content">
+
+        
+        <input type="text" id="search-input" placeholder="Search courses...">
+        <button id="search-button">Search</button>
+        <ul id="search-results"></ul>
+        
+        <h2>Create a New Course</h2>
+        <input type="text" id="course-name" placeholder="Course Name">
+        <input type="text" id="course-code" placeholder="Course Code">
+        <input type="text" id="course-schedule" placeholder="Schedule">
+        <input type="number" id="course-duration" placeholder="Duration in Minutes">
+        <input type="number" id="course-seats" placeholder="Available Seats">
+        <button id="create-button">Create Course</button>
+        
+        <h2>Courses List</h2>
+        <ul id="courses-list"></ul>
+        
+            <ul id="courses-list" class="results-list"></ul>
+        </section>
+
+        <section id="student-section" class="card">
+            <h2>Your Courses</h2>
+            <ul id="student-courses-list" class="results-list"></ul>
+        </section>
+    </main>
+</body>
+</html>

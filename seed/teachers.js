@@ -7,33 +7,38 @@ const main = async () => {
   const course = await Course.find()
   const teachers = [
     {
-      name: 'Mary Fitsburg',
+      name: 'mary fitsburg',
       email: 'maryf@school.edu',
+      password: 'MaryPass123!',
       subject: course[0]._id,
       isadmin: true,
       profilePicture: 'https://img.freepik.com/premium-vector/flat-illustration-male-teacher-logo_922041-24.jpg',
     },
     {
-      name: 'John Peterson',
+      name: 'john peterson',
       email: 'johnp@school.edu',
+      password: 'JohnPass456!',
       subject: course[1]._id,
       isadmin: true,
-      profilePicture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmB84NcT9sXmsRcZGxvObJZWB1Kig0PGh12Q&s'
+      profilePicture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmB84NcT9sXmsRcZGxvObJZWB1Kig0PGh12Q&s',
     },
     {
-      name: 'Sophia Bennett',
+      name: 'sophia bennett',
       email: 'sophiab@school.edu',
+      password: 'SophiaPass789!',
       subject: course[2]._id,
       isadmin: true,
-      profilePicture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKaLgpD-HndGl2Lca3axiuJeWZqseVrw1Khg&s'
+      profilePicture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKaLgpD-HndGl2Lca3axiuJeWZqseVrw1Khg&s',
     },
     {
-      name: 'Mark Evans',
+      name: 'mark evans',
       email: 'marke@school.edu',
+      password: 'MarkPass101!',
       subject: course[3]._id,
       isadmin: true,
-      profilePicture: 'https://img.freepik.com/premium-vector/flat-illustration-male-teacher-logo_922041-24.jpg'
+      profilePicture: 'https://img.freepik.com/premium-vector/flat-illustration-male-teacher-logo_922041-24.jpg',
     }
+    
     
   ]
   await Teacher.insertMany(teachers)

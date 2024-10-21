@@ -5,6 +5,7 @@ const Teacher = new Schema(
     {
         name: {type: String, required: true},
         email: {type: String, required: true},
+        password: {type: String, required: true},
         subject: {type: mongoose.Schema.Types.ObjectId, ref: 'Course'},
         isadmin: {type: Boolean, required: true},
         profilePicture: {type: String },

@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors')
 const db = require('./db');
 const {Course, Teacher, Student } = require('./models')
+const bcrypt = require('bcrypt') // For password hashing
 const courseController = require('./controllers/courseController')
 const teacherController = require('./controllers/teacherController')
 const studentController = require('./controllers/studentController')
@@ -10,6 +11,7 @@ const logger = require('morgan')
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+app.use(express.json())
 app.use(cors())
 app.use(logger('dev'))
 app.use(bodyParser.json())
@@ -17,7 +19,64 @@ app.use(bodyParser.json())
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
 
 
-app.get('/', (req,res) => res.send('Welcome to Schooltastic a course management portal!'))
+// Signup Route
+app.post('/signup', async (req, res) => {
+    try {
+        const { name, email, password, profession, grade, subject } = req.body;
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        let user;
+        if (profession === 'student') {
+            user = new Student({
+                name,
+                email,
+                password: hashedPassword,
+                grade,
+                isadmin: false,
+            });
+        } else if (profession === 'teacher') {
+
+            user = new Teacher({
+                name,
+                email,
+                password: hashedPassword,
+                isadmin: true,
+            });
+        }
+
+        await user.save();
+        res.status(201).json({ message: 'Signup successful', user });
+    } catch (error) {
+        console.error('Error during signup:', error);
+        res.status(500).json({ message: 'Signup failed', error: error.message });
+    }
+});
+
+  
+
+// Login Route
+app.post('/login', async (req, res) => {
+    try {
+      const { email, password } = req.body;
+  
+      // Search for user in both Student and Teacher collections
+      const user = await Student.findOne({ email }) || await Teacher.findOne({ email });
+  
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+  
+      const isPasswordValid = await bcrypt.compare(password, user.password);
+      if (!isPasswordValid) {
+        return res.status(401).json({ message: 'Invalid credentials' });
+      }
+  
+      res.status(200).json({ message: 'Login successful', user });
+    } catch (error) {
+      res.status(500).json({ message: 'Login failed', error });
+    }
+  });
+
 
 // Course Routes
 app.get('/courses', courseController.getAllCourses);
@@ -32,10 +91,12 @@ app.delete('/courses/delete/:id', courseController.deleteCourse);
 app.get('/students', studentController.getAllStudents);
 app.get('/students/:id', studentController.getStudentById);
 app.get('/students/email/:email', studentController.getStudentByEmail);
+app.get('/students/course/:courseId', studentController.getStudentByCourseId);
 app.get('/students/name/:name', studentController.getStudentByName);
 app.post('/students/create', studentController.createStudent);
 app.put('/students/update/:id', studentController.updateStudent);
 app.delete('/students/delete/:id', studentController.deleteStudent);
+app.get('/students/')
 
 // Teacher Routes
 app.get('/teachers', teacherController.getAllTeachers);
