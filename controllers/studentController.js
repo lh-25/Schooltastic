@@ -90,7 +90,7 @@ const getStudentByCourseId = async (req, res) => {
     try {
         const  {courseId } = req.params;
         const decodedName = decodeURIComponent(courseId)
-        const student = await Student.find({ course: courseId });
+        const student = await Student.find({ course });
         if (student.length > 0) {
             return res.json(student);
         }
