@@ -75,10 +75,9 @@ const getStudentByEmail = async (req, res) => {
 };
 const getStudentByName = async (req, res) => {
     try {
-        const  name  = req.params;
-        console.log()
+        const  {name } = req.params;
+        const decodedName = decodeURIComponent(name)
         const student = await Student.find({ name });
-        console.log(student)
         if (student.length > 0) {
             return res.json(student);
         }

@@ -65,6 +65,7 @@ const deleteCourse = async (req, res) => {
 const getCourseByName = async (req, res) => {
     try {
         const { name } = req.params;
+        const decodedName = decodeURIComponent(name)
         const course = await Course.find({ name });
         if (course.length > 0) {
             return res.json(course);
