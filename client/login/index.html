@@ -8,9 +8,26 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script defer src="script.js"></script>
 </head>
+
+<header>
+    <div>
+        <img src="" alt="">
+    </div>
+    <div class="header">
+        <h2>Schooltastic</h2>
+        <h3>Course Manager</h3>
+    </div>
+    <nav class="top-nav">
+        <ol>
+            <li>Home</li>
+            <li>About Us</li>
+            <li>Contact</li>
+        </ol>
+    </nav>
+
+</header>
 <body>
-    <div class="forms">
-        <article id="login">
+    <div class="login">
             <h2>Login</h2>
             <form action="/client/index.html" method="get">
                 <label for="email">Email:</label>
@@ -18,13 +35,23 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
                 <input type="submit" value="Login">
+                <input action="/client/signup/index.html" type="" value="">
             </form>
-        </article>
-    
+            <p>
+                Don't have an account? <a href="/client/signup/index.html" >Create Account</a>
+              </p>
+     </div>
     <footer class="footer">  
+        <nav class="bottom-nav">
+            <ol>
+                <li>Home</li>
+                <li>About Us</li>
+                <li>Contact</li>
+            </ol>
+        </nav>
         <div class="footer-bottom">
             <p>&copy; 2024 Schooltastic Inc. All rights reserved.</p>
-        </div>
+       </div>
     </footer>
 </body>
 </html>
