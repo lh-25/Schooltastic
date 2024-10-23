@@ -13,6 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+//  I really wanted to have a registration form on this site, and I watched some videos, read some articles, and asked ChatGPT how I could make that work. This is the solution that all of the resources helped me come up with for saving user input to the database and then recalling it for login purposes.
+// https://stackoverflow.com/questions/76290210/bcrypt-compare-returning-false-everytime#:~:text=site%20logo%20Join%20Stack%20Overflow%20%C2%B7%20OR,%C2%B7%20bcrypt.compare%20returning%20false%20everytime%20%C2%B7%20Subscribe
+//  https://www.youtube.com/watch?v=NW7DPBxCAd0
+
 // Function to handle signup
 const handleSignup = async (e) => {
     e.preventDefault();

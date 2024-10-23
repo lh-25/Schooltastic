@@ -90,41 +90,41 @@ header h1 {
 }
 
 /* Page Layout */
-.page-container {
-    display: flex;
-    margin-left: 260px;
-    overflow: hidden;
-    padding: 20px;
-}
-
-/* Main Content */
 .content {
+    margin-left: 260px;
     padding: 20px;
     overflow-y: auto;
 }
 
-/* Inputs and Buttons */
-input[type="text"],
-input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    transition: border-color 0.3s;
+/* Teacher List */
+#teachers-list {
+    padding: 0;
+    margin-top: 20px;
 }
 
-input:focus {
-    border-color: #4B88A2;
-    outline: none;
+#teachers-list li {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Inputs and Buttons */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
 }
 
 button {
     background-color: #FFD700;
-    border: none;
-    color: white;
     padding: 10px 20px;
-    margin: 10px 0;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -134,53 +134,37 @@ button:hover {
     background-color: #F0C808;
 }
 
-/* Lists and Cards */
-ul {
-    list-style:none;
-    padding: 0;
-}
-
-.results-list li {
-    background-color: white;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-evenly;
-    align-content: center;
-    align-items: center;
-}
-
-
-/* Search Results */
-#search-results {
-    margin-top: 20px;
-}
-
-.course-result {
-    background-color: #fff;
+/* Search Results Styling */
+.teacher-result {
+    background-color: #ffffff;
     border-radius: 8px;
+    margin-top: 30px;
     padding: 15px;
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
-    
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.course-result h3 {
-    margin: 0 0 10px;
+.teacher-result img {
+    width: 70px;
+    height: 60px;
+    border-radius: 50%; 
+    margin-right: 15px;
+    object-fit: cover;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+}
+
+.teacher-result h3 {
+    margin: 0;
     font-size: 1.5rem;
     color: #4B88A2;
 }
 
-.course-result p {
-    margin: 10px 0;
+.teacher-result p {
+    margin: 10px 5px;
     color: black;
-    font-size: 20px;
 }
 
 /* Responsive Design */
@@ -193,9 +177,5 @@ ul {
 
     .content {
         margin-left: 0;
-    }
-
-    .navbar ul {
-        flex-direction: column;
     }
 }

@@ -77,7 +77,7 @@ const getStudentByName = async (req, res) => {
     try {
         const  {name } = req.params;
         const decodedName = decodeURIComponent(name)
-        const student = await Student.find({ name });
+        const student = await Student.find({ name }).populate('course');
         if (student.length > 0) {
             return res.json(student);
         }
@@ -90,7 +90,7 @@ const getStudentByCourseId = async (req, res) => {
     try {
         const  {courseId } = req.params;
         const decodedName = decodeURIComponent(courseId)
-        const student = await Student.find({ course });
+        const student = await Student.find({ course }).populate('course');
         if (student.length > 0) {
             return res.json(student);
         }

@@ -23,7 +23,7 @@ app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
 // Signup Route
 const handleSignup = async (req, res) => {
     try {
-        const { name, email, password, profession, grade, subject } = req.body;
+        const { name, email, password, profession, grade } = req.body;
         const hashedPassword = await bcrypt.hash(password, 10);
 
         let user;

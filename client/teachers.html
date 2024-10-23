@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schooltastic Dashboard</title>
 
     <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="/client/style.css">
+    <link rel="stylesheet" href="/client/teachers.css">
 
     <!-- Axios Library -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <!-- JavaScript for Dashboard -->
-    <script defer src="/client/dashboard.js"></script>
+    <script defer src="/client/teachers.js"></script>
 </head>
-
 <body>
     <header class="header">
         <h1>Schooltastic</h1>
@@ -27,7 +25,7 @@
             </ul>
         </nav>
     </header>
-<nav class="sidebar">
+ <nav class="sidebar">
                 <ul>
                     <li><a href="./teachers.html" id="view-teachers">View Teachers</a></li>
                     <li><a href="./students.html" id="view-students">View Students</a></li>
@@ -36,23 +34,17 @@
             </nav>
     <div class="page-container">
         <main class="content">
-            
-            <input type="text" id="search-input" placeholder="Search courses...">
+
+           
+            <input type="text" id="search-input" placeholder="Search teachers...">
             <button id="search-button">Search</button>
             <div id="search-results"></div>
 
-            <h2>Create a New Course</h2>
-            <input type="text" id="course-name" placeholder="Course Name">
-            <input type="text" id="course-code" placeholder="Course Code">
-            <input type="text" id="course-schedule" placeholder="Schedule">
-            <input type="number" id="course-duration" placeholder="Duration in Minutes">
-            <input type="number" id="course-seats" placeholder="Available Seats">
-            <button id="create-button">Create Course</button>
 
-            <h2 id="course-list-section">Courses List</h2>
-            <ul id="courses-list" class="results-list"></ul>
+            <h2 id="faculty-list-section">Faculty</h2>
+            <ul id="teachers-list" class="results-list"></ul>
         </main>
     </div>
 </body>
-
 </html>
+

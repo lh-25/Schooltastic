@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schooltastic Dashboard</title>
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="/client/students.css">
+
+    <!-- Axios Library -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- JavaScript for Dashboard -->
+    <script defer src="/client/students.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <h1>Schooltastic</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="./teachers.html" id="view-teachers">View Teachers</a></li>
+                <li><a href="./students.html" id="view-students">View Students</a></li>
+                <li><a href="./dashboard.html" id="manage-courses">Manage Courses</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <input type="text" id="search-input" placeholder="Search...">
+            <select id="search-type">
+                <option value="name">Name</option>
+                <option value="email">Email</option>
+            </select>
+            <button id="search-button">Search</button>
+            <div id="search-results"></div>
+
+
+
+
+            <h2 id="students-list-section">Students</h2>
+            <ul id="students-list" class="results-list"></ul>
+        </main>
+    </div>
+</body>
+
+</html>

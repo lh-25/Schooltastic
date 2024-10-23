@@ -4,6 +4,7 @@ const createButton = document.querySelector('#create-button');
 const searchResults = document.querySelector('#search-results');
 const coursesList = document.querySelector('#courses-list');
 const searchInput = document.querySelector('#search-input')
+const BASE_URL = `http://localhost:3001/courses`
 
 // Load courses on page load
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Function to load courses
 const loadCourses = async () => {
     try {
-        const response = await axios.get('http://localhost:3001/courses');
+        const response = await axios.get(`${BASE_URL}`);
         coursesList.innerHTML = response.data.map(course => `
             <li>
                 ${course.name} - ${course.courseCode}
@@ -33,19 +34,19 @@ const loadCourses = async () => {
         console.error('Error loading courses:', error);
     }
 };
-
+// this website and chatgpt helped me with doing frontend crud 
 // Function to search for courses by name
 const searchCourses = async (query) => {
     try {
-        const response = await axios.get(`http://localhost:3001/courses/name/${encodeURIComponent(query)}`);
+        const response = await axios.get(`${BASE_URL}/name/${encodeURIComponent(query)}`);
         searchResults.innerHTML = response.data.length > 0
             ? response.data.map(course => `
                 <div class="course-result">
                     <h3>${course.name}</h3>
-                    <p>Code: ${course.courseCode}</p>
-                    <p>Schedule: ${course.schedule.join(', ')}</p>
-                    <p>Duration: ${course.durationInMinutes} mins</p>
-                    <p>Seats Available: ${course.seatsAvailable}</p>
+                    <p><strong>Course Code:</strong> ${course.courseCode}</p>
+                    <p><strong>Schedule:</strong> ${course.schedule.join(', ')}</p>
+                    <p><strong>Duration:</strong> ${course.durationInMinutes} mins</p>
+                    <p><strong>Seats Available:</strong> ${course.seatsAvailable} seats</p>
                 </div>
             `).join('')
             : '<p>No courses found.</p>';
@@ -66,7 +67,7 @@ const createCourse = async () => {
     const newCourse = { name, courseCode, schedule, durationInMinutes, seatsAvailable };
 
     try {
-        await axios.post('http://localhost:3001/courses/create', newCourse);
+        await axios.post(`${BASE_URL}/create`, newCourse);
         alert('Course created!');
         loadCourses();
     } catch (error) {
@@ -86,7 +87,7 @@ const updateCourse = async (courseId) => {
     const updatedCourse = { name, courseCode, schedule, durationInMinutes, seatsAvailable };
 
     try {
-        await axios.put(`http://localhost:3001/courses/update/${courseId}`, updatedCourse);
+        await axios.put(`${BASE_URL}/update/${courseId}`, updatedCourse);
         alert('Course updated!');
         loadCourses();
     } catch (error) {
@@ -97,7 +98,7 @@ const updateCourse = async (courseId) => {
 // Function to delete a course
 const deleteCourse = async (courseId) => {
     try {
-        await axios.delete(`http://localhost:3001/courses/delete/${courseId}`);
+        await axios.delete(`${BASE_URL}/delete/${courseId}`);
         alert('Course deleted!');
         loadCourses();
     } catch (error) {
