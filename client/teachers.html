@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schooltastic Dashboard</title>
-
-    <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="/client/teachers.css">
-
-    <!-- Axios Library -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-    <!-- JavaScript for Dashboard -->
     <script defer src="/client/teachers.js"></script>
 </head>
+
 <body>
     <header class="header">
         <h1>Schooltastic</h1>
@@ -25,17 +21,17 @@
             </ul>
         </nav>
     </header>
- <nav class="sidebar">
-                <ul>
-                    <li><a href="./teachers.html" id="view-teachers">View Teachers</a></li>
-                    <li><a href="./students.html" id="view-students">View Students</a></li>
-                    <li><a href="#course-list-section" id="manage-courses">Manage Courses</a></li>
-                </ul>
-            </nav>
+    <nav class="sidebar">
+        <ul>
+            <li><a href="./teachers.html" id="view-teachers">View Teachers</a></li>
+            <li><a href="./students.html" id="view-students">View Students</a></li>
+            <li><a href="#course-list-section" id="manage-courses">Manage Courses</a></li>
+        </ul>
+    </nav>
     <div class="page-container">
         <main class="content">
 
-           
+
             <input type="text" id="search-input" placeholder="Search teachers...">
             <button id="search-button">Search</button>
             <div id="search-results"></div>
@@ -46,5 +42,5 @@
         </main>
     </div>
 </body>
-</html>
 
+</html>

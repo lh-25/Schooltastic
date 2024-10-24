@@ -1,36 +1,29 @@
 // Global variables
-const searchButton = document.querySelector('#search-button');
-const searchResults = document.querySelector('#search-results');
-const coursesList = document.querySelector('#teachers-list');
+const searchButton = document.querySelector('#search-button')
+const searchResults = document.querySelector('#search-results')
+const coursesList = document.querySelector('#teachers-list')
 const searchInput = document.querySelector('#search-input')
 const BASE_URL = `http://localhost:3001/teachers`
 
-document.addEventListener('DOMContentLoaded', () => {
-    loadTeachers();
 
-    searchButton.addEventListener('click', () => {
-        searchTeachers(searchInput.value);
-    });
-});
 
 const loadTeachers = async () => {
     try {
-        const response = await axios.get(`${BASE_URL}`);
+        const response = await axios.get(`${BASE_URL}`)
         coursesList.innerHTML = response.data.map(teacher => `
             <li>
                 Name: ${teacher.name}  Email: ${teacher.email}
             </li>
-        `).join('');
+        `).join('')
     } catch (error) {
-        console.error('Error loading teachers:', error);
+        console.error('Error loading teachers:', error)
     }
-};
-
+}
 
 
 const searchTeachers = async (query) => {
     try {
-        const response = await axios.get(`${BASE_URL}/name/${encodeURIComponent(query)}`);
+        const response = await axios.get(`${BASE_URL}/name/${encodeURIComponent(query)}`)
         searchResults.innerHTML = response.data.length > 0
             ? response.data.map(teacher => `
                  <div class="teacher-result">
@@ -40,10 +33,17 @@ const searchTeachers = async (query) => {
                     <p><strong>Subject:</strong> ${teacher.subject ? teacher.subject.name : 'N/A'}</p>
                 </div>
             `).join('')
-            : '<p>No teacher found.</p>';
+            : '<p>No teacher found.</p>'
     } catch (error) {
-        console.error('Error searching courses:', error);
-        alert('Failed to search for courses. Please try again.');
+        console.error('Error searching courses:', error)
+        alert('Failed to search for courses. Please try again.')
     }
-};
+}
 
+document.addEventListener('DOMContentLoaded', () => {
+    loadTeachers()
+
+    searchButton.addEventListener('click', () => {
+        searchTeachers(searchInput.value)
+    })
+})
