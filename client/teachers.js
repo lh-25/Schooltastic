@@ -1,6 +1,5 @@
 // Global variables
 const searchButton = document.querySelector('#search-button');
-const createButton = document.querySelector('#create-button');
 const searchResults = document.querySelector('#search-results');
 const coursesList = document.querySelector('#teachers-list');
 const searchInput = document.querySelector('#search-input')
@@ -19,7 +18,7 @@ const loadTeachers = async () => {
         const response = await axios.get(`${BASE_URL}`);
         coursesList.innerHTML = response.data.map(teacher => `
             <li>
-                ${teacher.name} - ${teacher.email}
+                Name: ${teacher.name}  Email: ${teacher.email}
             </li>
         `).join('');
     } catch (error) {
@@ -47,28 +46,4 @@ const searchTeachers = async (query) => {
         alert('Failed to search for courses. Please try again.');
     }
 };
-
-// const searchTeachers = async (query) => {
-//     const searchType = document.querySelector('#search-type').value; 
-//     const endpoint = searchType === 'email' 
-//         ? `${BASE_URL}/email/${encodeURIComponent(query)}`
-//         : `${BASE_URL}/name/${query}`;
-
-//     try {
-//         const response = await axios.get(endpoint);
-//         const teacher = response.data;
-//         searchResults.innerHTML = teacher 
-//             ? `
-//                 <div class="teacher-result">
-//                     <h3>Name: ${teacher.name}</h3>
-//                     <p>Email: ${teacher.email}</p>
-//                     <p>Subject: ${teacher.subject ? teacher.subject.name : 'N/A'}</p>
-//                 </div>
-//             ` 
-//             : '<p>No teacher found.</p>';
-//     } catch (error) {
-//         console.error('Error searching teachers:', error);
-//         alert('Failed to search for teachers. Please try again.');
-//     }
-// };
 

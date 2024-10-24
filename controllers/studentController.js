@@ -63,8 +63,9 @@ const deleteStudent = async (req, res) => {
 
 const getStudentByEmail = async (req, res) => {
     try {
-        const { email } = req.params;
-        const student = await Student.findOne({ email });
+        const { email} = req.params;
+        const decodedEmail = decodeURIComponent(email)
+        const student = await Student.findOne({ email }).populate('course');
         if (student) {
             return res.json(student);
         }

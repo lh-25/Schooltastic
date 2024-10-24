@@ -79,7 +79,7 @@ const getTeacherByName = async (req, res) => {
     try {
         const { name } = req.params;
         const decodedName = decodeURIComponent(name)
-        const teacher = await Teacher.find({ name });
+        const teacher = await Teacher.find({ name }).populate('subject');
         if (teacher.length > 0) {
             return res.json(teacher);
         }

@@ -93,7 +93,6 @@ header h1 {
 .content {
     margin-left: 260px;
     padding: 20px;
-    overflow-y: auto;
 }
 
 /* Student List */
@@ -144,31 +143,34 @@ button:hover {
 .student-result {
     background-color: #ffffff;
     border-radius: 8px;
+    margin-top: 30px;
     padding: 15px;
     margin-bottom: 10px;
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .student-result img {
-    width: 60px;
+    width: 70px;
     height: 60px;
-    border-radius: 50%;
+    border-radius: 50%; 
     margin-right: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     object-fit: cover;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
 }
 
 .student-result h3 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: #4B88A2;
 }
 
 .student-result p {
-    margin: 5px 0;
+    margin: 5px 5px;
     color: #555;
 }
 
