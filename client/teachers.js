@@ -12,7 +12,7 @@ const loadTeachers = async () => {
         const response = await axios.get(`${BASE_URL}`)
         coursesList.innerHTML = response.data.map(teacher => `
             <li>
-                Name: ${teacher.name}  Email: ${teacher.email}
+                Name: ${teacher.name} <br> Email: ${teacher.email}
             </li>
         `).join('')
     } catch (error) {

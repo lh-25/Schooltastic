@@ -1,15 +1,6 @@
 // Global variables
 const signupForm = document.querySelector('#signup-form')
 const loginForm = document.querySelector('#login-form')
-const BASE_URL = 'http://localhost:3001'
-
-
-// Show or hide fields based on profession selection
-document.getElementById('profession').addEventListener('change', (e) => {
-    const profession = e.target.value
-    document.getElementById('student-fields').style.display = profession === 'student' ? 'block' : 'none'
-    document.getElementById('teacher-fields').style.display = profession === 'teacher' ? 'block' : 'none'
-})
 
 
 //  I really wanted to have a registration form on this site, and I watched some videos, read some articles, and asked ChatGPT how I could make that work. This is the solution that all of the resources helped me come up with for saving user input to the database and then recalling it for login purposes.
@@ -28,7 +19,7 @@ const handleSignup = async (e) => {
     const subject = profession === 'teacher' ? document.querySelector('#subject').value : null
 
     try {
-        const response = await axios.post(`${BASE_URL}/signup`, {
+        const response = await axios.post('http://localhost:3001/signup', {
             name, email, password, profession, grade, subject
         })
 
@@ -48,7 +39,7 @@ const handleLogin = async (e) => {
     const password = document.querySelector('#password').value
 
     try {
-        const response = await axios.post(`${BASE_URL}/login`, {
+        const response = await axios.post('http://localhost:3001/login', {
             email, password
         })
 
